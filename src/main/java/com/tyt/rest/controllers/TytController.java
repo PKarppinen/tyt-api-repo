@@ -14,6 +14,7 @@ import com.tyt.repositories.TrailRepository;
 import com.tyt.rest.controllers.exceptions.DublicateTrailException;
 import com.tyt.rest.controllers.exceptions.TrailNotFoundException;
 
+//Main Controller
 @RestController
 @RequestMapping(value = "/api/trails")
 public class TytController {
