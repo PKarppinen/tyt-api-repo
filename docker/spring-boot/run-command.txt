@@ -1,0 +1,8 @@
+
+CHECK IP:
+---------
+docker run --rm --name api --link db:db root/tyt-api env
+
+RUN CONTAINER:
+--------------
+docker run -d -p 8080:8080 --name api --link db:db root/tyt-api java -jar api.jar --spring.data.mongodb.host=<DB CONTAINER IP-ADDRESS HERE>
