@@ -5,4 +5,5 @@ When building the app remember the have following prerequisites
 - Gradle 2.7
 
 Build command: gradle build
-Run command: java -jar <BUILDED JAR>
+
+Run command: java -jar ...
