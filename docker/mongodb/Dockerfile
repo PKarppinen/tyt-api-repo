@@ -3,4 +3,4 @@ FROM mongo
 
 # Run mongo db
 WORKDIR /usr/bin/
-CMD mongod --fork --logpath /var/log/mongodb.log
+CMD mongod
