@@ -9,4 +9,5 @@ public class TrailYourTrailsApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(TrailYourTrailsApiApplication.class, args);
     }
+
 }

@@ -1,6 +1,7 @@
 package com.tyt.rest.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +45,8 @@ public class TytController {
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public Trail updateTrail(@RequestBody Trail trail) throws TrailNotFoundException {
-		Trail existingTrail = trailRepository.findOne(trail.getId());
+		Optional<Trail> existingTrailOptional = trailRepository.findById(trail.getId());
+		Trail existingTrail = existingTrailOptional.get();
 		if (existingTrail != null) {
 			existingTrail.setTitle(trail.getTitle());
 			existingTrail.setIframe(trail.getIframe());
@@ -56,6 +58,6 @@ public class TytController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public void deleteTrail(@PathVariable String id) throws IllegalArgumentException {
-		trailRepository.delete(id);
+		trailRepository.deleteById(id);
 	}
 }
