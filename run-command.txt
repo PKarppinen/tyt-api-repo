@@ -1,8 +1,4 @@
-
-CHECK IP:
----------
-docker run --rm --name api --link db:db root/tyt-api env
-
-RUN CONTAINER:
---------------
-docker run -d -p 8080:8080 --name api --link db:db root/tyt-api java -jar api.jar --spring.data.mongodb.host=<DB CONTAINER IP-ADDRESS HERE>
+1. Build image: docker build .
+2. Tag image: docker tag <imamge id> tyt-api
+3. Check container ip: docker run --rm --name api --link db:db tyt-api env
+4. Run container: docker run -d -p 8080:8080 --name api --link db:db tyt-api java -jar tyt-api-repo.jar --spring.data.mongodb.host=<DB CONTAINER IP-ADDRESS HERE>

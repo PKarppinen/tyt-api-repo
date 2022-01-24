@@ -21,7 +21,7 @@ import com.tyt.rest.controllers.exceptions.DublicateTrailException;
 import com.tyt.rest.controllers.exceptions.TrailNotFoundException;
 
 //Main Controller
-@CrossOrigin(originPatterns = "http://localhost:8081", allowCredentials = "false")
+@CrossOrigin(originPatterns = "*", allowCredentials = "false")
 @RolesAllowed("USER")
 @RestController
 @RequestMapping(value = "/api/trails")

@@ -1,7 +1,7 @@
 # Use this as a base image
-FROM java:openjdk-7-jre
+FROM openjdk:15
 
 # Copy application
 WORKDIR /home/docker/api
-COPY api.jar /home/docker/api/
-CMD java -jar api.jar
+COPY build/libs/tyt-api-repo.jar /home/docker/api/
+#CMD java -jar tyt-api-repo.jar
