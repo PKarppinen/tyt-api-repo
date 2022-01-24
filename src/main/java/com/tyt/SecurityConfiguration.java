@@ -43,17 +43,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        //configuration.setAllowedOrigins(Arrays.asList("http://localhost:8081"));
-        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8081"));
         configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type",  "x-auth-token", "cache-control"));
         configuration.setExposedHeaders(Arrays.asList("authorization", "x-auth-token"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        //source.registerCorsConfiguration("/api/trails/**", configuration);
-        //FilterRegistrationBean<Filter> bean = new FilterRegistrationBean(new CorsFilter(source));
-        //bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        source.registerCorsConfiguration("/**", configuration);       
         return source;
     }
 	 

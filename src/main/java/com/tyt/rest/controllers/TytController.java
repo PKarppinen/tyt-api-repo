@@ -40,6 +40,7 @@ public class TytController {
 	
 	@RequestMapping(value = "/{title}", method = RequestMethod.GET)
 	public Trail getTrailByTitle(@PathVariable String title) {
+		logger.info("Getting a trail with title {}", title);
 		return trailRepository.findByTitle(title);
 	}
 
@@ -55,6 +56,7 @@ public class TytController {
 		if (existingTrail != null) {
 			throw new DublicateTrailException("Trail with given title already exists.");
 		} else {
+			logger.info("Saving trail with title {}", trail.getTitle());
 			return trailRepository.save(trail);
 		}
 	}
@@ -66,6 +68,7 @@ public class TytController {
 		if (existingTrail != null) {
 			existingTrail.setTitle(trail.getTitle());
 			existingTrail.setIframe(trail.getIframe());
+			logger.info("Updating the trail with title {}", existingTrail.getTitle());
 			return trailRepository.save(existingTrail);
 		} else {
 			throw new TrailNotFoundException("Trail with given title couldn't be found.");
@@ -74,6 +77,7 @@ public class TytController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public void deleteTrail(@PathVariable String id) throws IllegalArgumentException {
+		logger.info("Deleting the trail with id {}", id);
 		trailRepository.deleteById(id);
 	}
 }
