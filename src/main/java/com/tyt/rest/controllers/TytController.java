@@ -21,7 +21,6 @@ import com.tyt.rest.controllers.exceptions.DublicateTrailException;
 import com.tyt.rest.controllers.exceptions.TrailNotFoundException;
 
 //Main Controller
-@CrossOrigin(originPatterns = "*", allowCredentials = "false")
 @RolesAllowed("USER")
 @RestController
 @RequestMapping(value = "/api/trails")
@@ -34,7 +33,7 @@ public class TytController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	String login() {
-		logger.info("Handling logging");
+		logger.info("Handling logging.");
 		return "login";
 	}	
 	
